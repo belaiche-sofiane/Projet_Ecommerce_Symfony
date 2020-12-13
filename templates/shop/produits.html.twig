@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+{% block title %}Produits
+{% endblock %}
+
+
+{% block body %}
+
+
+	<div class="album py-5 bg-light">
+		<div class="container">
+			<h2>Produits</h2>
+			
+			{% if form is defined %}
+				{{form(form)}}
+			{% endif %}
+				
+				
+				<div class="Produits">
+
+					<hr/>
+
+
+					<div class="row">
+						{% for produit in All %}
+							<div class="col-md-4">
+								<div class="card mb-4 box-shadow" style="height: 100%">
+									<img class="card-img-top" src="{{ produit.image }}" alt="Card image cap" height="300rem"/>
+									<div class="card-body text-center">
+										<h5 class="card-title">
+											{{ produit.brand }}
+											{{ produit.model }}
+										</h5>
+										<h5 class="card-title">
+											Prix:
+											{{ produit.price }}
+											€
+										</h5>
+										<div class="row"></div>
+										{% if app.user %}
+											<button type="button" class="btn btn-dark btn-lg btn-block">
+											<a href="{{path('cart_add', {'id': produit.id })}}">Ajouter au panier</a>
+										</button>
+										{% endif %}
+										
+										<button type="button" class="btn btn-dark btn-lg btn-block">
+											<a href="{{path('produit',{'id':produit.id})}}">Details</a>
+										</button>
+									</div>
+
+								</div>
+
+							</div>
+						{% endfor %}
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+
+	{% endblock %}

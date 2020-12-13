@@ -1,8 +1,8 @@
 # Installation
 
 1. Clone or download repository
-
-   https://github.com/arezki-k/EcommerceSymfony
+https://github.com/belaiche-sofiane/Symfony-Project
+  
 
 2. Move to project directory and run composer 
  
